@@ -40,11 +40,15 @@ export default {
       formData.append("file", this.selectedFile);
 
       try {
-        const response = await axios.post("http://127.0.0.1:5000/upload_file", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        const response = await axios.post(
+          "http://10.16.12.103:5000/upload_file",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
         this.predictionResult = response.data.result;
       } catch (error) {
         console.error("Error uploading image:", error);
